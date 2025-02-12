@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Simulated authentication (Replace this with actual API call)
         if (username === "admin" && password === "password123") {
             alert("Login successful!");
-            window.location.href = "https://dormdash1.netlify.app/"; // Redirect to a dashboard page
+            window.location.href = "https://dormdash1available.netlify.app/"; // Redirect to a dashboard page
         } else {
             alert("Invalid username or password. Try again.");
         }
