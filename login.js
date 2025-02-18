@@ -1,23 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const loginButton = document.querySelector("button.w-full.bg-indigo-500");
-    
-    loginButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent form submission
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDobwvOdyiwBCjNNBUyRNStwrMQmhFv3vY",
+  authDomain: "dormdash-1becd.firebaseapp.com",
+  databaseURL: "https://dormdash-1becd-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "dormdash-1becd",
+  storageBucket: "dormdash-1becd.firebasestorage.app",
+  messagingSenderId: "789434000901",
+  appId: "1:789434000901:web:a8f28358c7e0091b2ede6c"
+};
 
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-        if (username === "" || password === "") {
-            alert("Please enter both username and password.");
-            return;
-        }
+// Login event listener
+document.getElementById("login-btn").addEventListener("click", function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-        // Simulated authentication (Replace this with actual API call)
-        if (username === "admin" && password === "password123") {
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
             alert("Login successful!");
-            window.location.href = "https://dormdash1available.netlify.app/"; // Redirect to a dashboard page
-        } else {
-            alert("Invalid username or password. Try again.");
-        }
-    });
+            window.location.href = "dashboard.html"; // Redirect to dashboard or home page
+        })
+        .catch((error) => {
+            alert(error.message);
+        });
 });
