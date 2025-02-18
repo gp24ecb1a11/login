@@ -23,7 +23,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       alert("✅ Login successful!");
-      window.location.href = "dashboard.html"; // Redirect to Dashboard
+      window.location.href = "https://dormdash1.netlify.app/"; // Redirect to Dashboard
     })
     .catch((error) => {
       alert("❌ Login failed! " + error.message);
